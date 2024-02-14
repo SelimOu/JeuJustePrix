@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Introduction : Exercices partie 2</title>
+</head>
+
+<body style="padding: 20px;">
+
+    <button onclick="retry()">Nouvel essai</button>
+    <p id="resultat"></p>
+    <script>
+
+        let secretnumber = Math.floor(Math.random() * 1000);
+        let attempts = 0;
+
+        function exercice5() {
+
+            function CheckDifficulty() {
+
+                let difficulty = prompt("Choisis la difficulté entre 'facile' , 'normal' et 'difficile' :");
+
+
+                switch (difficulty) {
+
+                    case 'facile':
+                        diff = 20;
+                        alert('Vous avvez choisis la difficulté "facile"')
+                        return diff
+                        break;
+
+                    case 'normal':
+                        diff = 10;
+                        alert('Vous avvez choisis la difficulté "normal"');
+                        console.log(diff);
+                        break;
+
+                    case 'difficile':
+                        diff = 3;
+                        alert('Vous avvez choisis la difficulté "difficille"')
+                        break;
+
+                    default: CheckDifficulty();
+                }
+                console.log(diff);
+
+            }
+            CheckDifficulty();
+
+
+            while (attempts < diff) {
+
+
+
+                let devine = prompt("Devinez le nombre (entre 1 et 1000) :");
+
+
+                attempts++;
+
+                if (devine > secretnumber) {
+                    alert('Trop haut !');
+
+                } else if (devine < secretnumber) {
+                    alert('Trop bas !');
+
+                } else if (devine == secretnumber) {
+                    alert('Bravo vous avez trouvé le numéro secret!')
+                    return;
+                }
+            }
+            alert('Vous avez perdu')
+
+            let resultat = document.getElementById("resultat");
+            resultat.innerText = secretnumber;
+
+
+
+
+        }
+        function retry() {
+            console.log(545454);
+            exercice5();
+        }
+
+        exercice5()
+
+
+    </script>
+</body>
+
+</html>
